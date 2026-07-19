@@ -26,6 +26,6 @@ func NewNik(nik string) (Nik, error) {
 	return Nik{value: nik}, nil
 }
 
-func (n Nik) String() string {
+func (n Nik) Value() string {
 	return n.value
 }

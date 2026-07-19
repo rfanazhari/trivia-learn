@@ -12,8 +12,8 @@ func TestNewNik_ShouldSuccess(t *testing.T) {
 		t.Errorf("NewNik() error = %v, want nil", err)
 	}
 
-	if nik.String() != "3175983746738887" {
-		t.Errorf("NewNik() got = %v, want 3175983746738887", nik.String())
+	if nik.Value() != "3175983746738887" {
+		t.Errorf("NewNik() got = %v, want 3175983746738887", nik.Value())
 	}
 }
 

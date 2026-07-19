@@ -12,12 +12,12 @@ func TestNewOwner_ValidateFirstNameOnly_ShouldSuccess(t *testing.T) {
 		t.Fatalf("unexpected error: %v", err)
 	}
 
-	if owner.GetFirstName() != "John" {
-		t.Errorf("unexpected firstName: %s", owner.GetFirstName())
+	if owner.FirstName() != "John" {
+		t.Errorf("unexpected firstName: %s", owner.FirstName())
 	}
 
-	if owner.GetLastName() != "" {
-		t.Errorf("unexpected lastName: %s", owner.GetLastName())
+	if owner.LastName() != "" {
+		t.Errorf("unexpected lastName: %s", owner.LastName())
 	}
 }
 
@@ -27,12 +27,12 @@ func TestNewOwner_ValidateFirstNameAndLastName_ShouldSuccess(t *testing.T) {
 		t.Fatalf("unexpected error: %v", err)
 	}
 
-	if owner.GetFirstName() != "John" {
-		t.Errorf("unexpected firstName: %s", owner.GetFirstName())
+	if owner.FirstName() != "John" {
+		t.Errorf("unexpected firstName: %s", owner.FirstName())
 	}
 
-	if owner.GetLastName() != "Wick" {
-		t.Errorf("unexpected lastName: %s", owner.GetLastName())
+	if owner.LastName() != "Wick" {
+		t.Errorf("unexpected lastName: %s", owner.LastName())
 	}
 }
 

@@ -17,15 +17,15 @@ func TestNewCustomer_ShouldSuccess(t *testing.T) {
 		t.Errorf("NewCustomer() customer = nil")
 	}
 
-	if cust.GetID() == "" {
-		t.Errorf("NewCustomer() id = %v, want not empty", cust.GetID())
+	if cust.ID() == "" {
+		t.Errorf("NewCustomer() id = %v, want not empty", cust.ID())
 	}
 
-	if cust.GetNik() != nik {
-		t.Errorf("NewCustomer() nik = %v, want %v", cust.GetNik(), nik)
+	if cust.Nik() != nik {
+		t.Errorf("NewCustomer() nik = %v, want %v", cust.Nik(), nik)
 	}
 
-	if cust.GetPersonName() != personName {
-		t.Errorf("NewCustomer() firstName = %v, want %v", cust.GetPersonName(), personName)
+	if cust.PersonalName() != personName {
+		t.Errorf("NewCustomer() firstName = %v, want %v", cust.PersonalName(), personName)
 	}
 }

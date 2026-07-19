@@ -16,14 +16,14 @@ func NewCustomer(nik Nik, name PersonName) (*Customer, error) {
 	}, nil
 }
 
-func (c *Customer) GetID() string {
+func (c *Customer) ID() string {
 	return c.id
 }
 
-func (c *Customer) GetNik() Nik {
+func (c *Customer) Nik() Nik {
 	return c.nik
 }
 
-func (c *Customer) GetPersonName() PersonName {
+func (c *Customer) PersonalName() PersonName {
 	return c.personName
 }

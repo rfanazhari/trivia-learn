@@ -20,10 +20,10 @@ func NewPersonName(firstName, lastName string) (PersonName, error) {
 	}, nil
 }
 
-func (o PersonName) GetFirstName() string {
+func (o PersonName) FirstName() string {
 	return o.firstName
 }
 
-func (o PersonName) GetLastName() string {
+func (o PersonName) LastName() string {
 	return o.lastName
 }

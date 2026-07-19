@@ -3,8 +3,7 @@ package customer
 import "regexp"
 
 var (
-	nikFormatLength = regexp.MustCompile(`^\d{16}$`)
-	nikFormatType   = regexp.MustCompile(`^\d+$`)
+	nikFormatType = regexp.MustCompile(`^\d+$`)
 )
 
 type Nik struct {
@@ -16,7 +15,7 @@ func NewNik(nik string) (Nik, error) {
 		return Nik{}, ErrInvalidNik
 	}
 
-	if !nikFormatLength.MatchString(nik) {
+	if len(nik) != 16 {
 		return Nik{}, ErrInvalidLength
 	}
 

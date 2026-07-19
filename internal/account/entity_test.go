@@ -24,11 +24,11 @@ func TestNewAccount_ShouldSuccess(t *testing.T) {
 	}
 
 	if acc.CustomerID() == "" {
-		t.Errorf("expected CustomerID to be non-empty, got %s", acc.CustomerID())
+		t.Error("expected CustomerID to be non-empty")
 	}
 
 	if acc.Owner() != owner {
-		t.Errorf("expected owner %s , got %s", acc.Owner(), acc.Owner().FirstName())
+		t.Errorf("expected owner %s , got %s", owner, acc.Owner())
 	}
 
 	if acc.Balance() != balance {
@@ -47,8 +47,8 @@ func TestNewAccount_EmptyCustomerID_ShouldFail(t *testing.T) {
 
 	_, err := account.NewAccount("", owner, balance)
 
-	if !errors.Is(err, account.ErrCustomerIDNotEmpty) {
-		t.Errorf("expected error %v, got %v", account.ErrCustomerIDNotEmpty, err)
+	if !errors.Is(err, account.ErrEmptyCustomerID) {
+		t.Errorf("expected error %v, got %v", account.ErrEmptyCustomerID, err)
 	}
 }
 

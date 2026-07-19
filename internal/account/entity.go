@@ -4,7 +4,7 @@ import "github.com/google/uuid"
 
 type Account struct {
 	id         string
-	customerId string
+	customerID string
 	owner      OwnerSnapshot
 	balance    Money
 	status     AccountStatus
@@ -12,12 +12,12 @@ type Account struct {
 
 func NewAccount(customerID string, personName OwnerSnapshot, balance Money) (*Account, error) {
 	if customerID == "" {
-		return nil, ErrCustomerIDNotEmpty
+		return nil, ErrEmptyCustomerID
 	}
 
 	return &Account{
 		id:         uuid.New().String(),
-		customerId: customerID,
+		customerID: customerID,
 		owner:      personName,
 		balance:    balance,
 		status:     StatusPending,
@@ -29,7 +29,7 @@ func (a *Account) ID() string {
 }
 
 func (a *Account) CustomerID() string {
-	return a.customerId
+	return a.customerID
 }
 
 func (a *Account) Owner() OwnerSnapshot {

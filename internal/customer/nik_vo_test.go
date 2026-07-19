@@ -2,11 +2,12 @@ package customer_test
 
 import (
 	"errors"
+	"learn-trivia/internal/customer"
 	"testing"
 )
 
 func TestNewNik_ShouldSuccess(t *testing.T) {
-	nik, err := NewNik("3175983746738887")
+	nik, err := customer.NewNik("3175983746738887")
 	if err != nil {
 		t.Errorf("NewNik() error = %v, want nil", err)
 	}
@@ -16,7 +17,7 @@ func TestNewNik_ShouldSuccess(t *testing.T) {
 }
 
 func TestNewNikEmpty_ShouldFail(t *testing.T) {
-	nik, err := NewNik("")
+	nik, err := customer.NewNik("")
 	if err == nil {
 		t.Fatalf("NewNik() error = %v, want error", err)
 	}

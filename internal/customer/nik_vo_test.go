@@ -49,3 +49,10 @@ func TestNewNikEmpty_ShouldFail(t *testing.T) {
 		t.Errorf("NewNik() error = %v, want ErrInvalidNik", err)
 	}
 }
+
+func TestNewNikTooLong_ShouldFail(t *testing.T) {
+	_, err := customer.NewNik("31759837467388871") // 17 digit
+	if !errors.Is(err, customer.ErrInvalidLength) {
+		t.Errorf("NewNik() error = %v, want ErrInvalidLength", err)
+	}
+}

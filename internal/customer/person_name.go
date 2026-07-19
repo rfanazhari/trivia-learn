@@ -1,11 +1,11 @@
 package customer
 
 type PersonName struct {
-	FirstName string
-	LastName  string
+	firstName string
+	lastName  string
 }
 
-func NewOwner(firstName, lastName string) (PersonName, error) {
+func NewPersonName(firstName, lastName string) (PersonName, error) {
 	if firstName == "" {
 		return PersonName{}, ErrInvalidFirstName
 	}
@@ -15,15 +15,15 @@ func NewOwner(firstName, lastName string) (PersonName, error) {
 	}
 
 	return PersonName{
-		FirstName: firstName,
-		LastName:  lastName,
+		firstName: firstName,
+		lastName:  lastName,
 	}, nil
 }
 
 func (o PersonName) GetFirstName() string {
-	return o.FirstName
+	return o.firstName
 }
 
 func (o PersonName) GetLastName() string {
-	return o.LastName
+	return o.lastName
 }

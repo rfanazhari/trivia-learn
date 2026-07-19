@@ -7,7 +7,7 @@ import (
 )
 
 func TestNewOwner_ValidateFirstNameOnly_ShouldSuccess(t *testing.T) {
-	owner, err := customer.NewOwner("John", "")
+	owner, err := customer.NewPersonName("John", "")
 	if err != nil {
 		t.Fatalf("unexpected error: %v", err)
 	}
@@ -16,13 +16,13 @@ func TestNewOwner_ValidateFirstNameOnly_ShouldSuccess(t *testing.T) {
 		t.Errorf("unexpected firstName: %s", owner.GetFirstName())
 	}
 
-	if owner.LastName != "" {
-		t.Errorf("unexpected lastName: %s", owner.LastName)
+	if owner.GetLastName() != "" {
+		t.Errorf("unexpected lastName: %s", owner.GetLastName())
 	}
 }
 
 func TestNewOwner_ValidateFirstNameAndLastName_ShouldSuccess(t *testing.T) {
-	owner, err := customer.NewOwner("John", "Wick")
+	owner, err := customer.NewPersonName("John", "Wick")
 	if err != nil {
 		t.Fatalf("unexpected error: %v", err)
 	}
@@ -37,7 +37,7 @@ func TestNewOwner_ValidateFirstNameAndLastName_ShouldSuccess(t *testing.T) {
 }
 
 func TestNewOwner_FirstNameEmpty_ShouldFail(t *testing.T) {
-	_, err := customer.NewOwner("", "Wick")
+	_, err := customer.NewPersonName("", "Wick")
 	if err == nil {
 		t.Fatal("expected error for empty firstName, got nil")
 	}
@@ -48,7 +48,7 @@ func TestNewOwner_FirstNameEmpty_ShouldFail(t *testing.T) {
 }
 
 func TestNewOwner_FirstNameTooShort_ShouldFail(t *testing.T) {
-	_, err := customer.NewOwner("Jo", "Wick")
+	_, err := customer.NewPersonName("Jo", "Wick")
 	if err == nil {
 		t.Fatal("expected error for firstName < 3 char, got nil")
 	}
@@ -59,7 +59,7 @@ func TestNewOwner_FirstNameTooShort_ShouldFail(t *testing.T) {
 }
 
 func TestNewOwner_FirstNameExactlyMinLength_ShouldSuccess(t *testing.T) {
-	_, err := customer.NewOwner("Joh", "")
+	_, err := customer.NewPersonName("Joh", "")
 	if err != nil {
 		t.Fatalf("expected no error with length 3, but error: %v", err)
 	}

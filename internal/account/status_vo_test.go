@@ -14,6 +14,7 @@ func TestAccountStatus_String_ShouldReturnCorrectLabel(t *testing.T) {
 		{account.StatusActive, "Active"},
 		{account.StatusDormant, "Dormant"},
 		{account.StatusInactive, "Inactive"},
+		{account.AccountStatus(99), "Unknown"},
 	}
 
 	for _, tt := range tests {

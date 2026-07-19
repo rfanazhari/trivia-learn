@@ -3,22 +3,24 @@ package account
 import "github.com/google/uuid"
 
 type Account struct {
-	id      string
-	owner   Owner
-	balance Money
-	status  AccountStatus
+	id         string
+	customerId string
+	owner      OwnerSnapshot
+	balance    Money
+	status     AccountStatus
 }
 
-func NewAccount(owner Owner) (*Account, error) {
-	newBalance, err := NewMoney(0)
-	if err != nil {
-		return nil, err
+func NewAccount(customerID string, personName OwnerSnapshot, balance Money) (*Account, error) {
+	if customerID == "" {
+		return nil, ErrCustomerIDNotEmpty
 	}
+
 	return &Account{
-		id:      uuid.New().String(),
-		owner:   owner,
-		balance: newBalance,
-		status:  StatusPending,
+		id:         uuid.New().String(),
+		customerId: customerID,
+		owner:      personName,
+		balance:    balance,
+		status:     StatusPending,
 	}, nil
 }
 
@@ -26,7 +28,11 @@ func (a *Account) ID() string {
 	return a.id
 }
 
-func (a *Account) Owner() Owner {
+func (a *Account) CustomerID() string {
+	return a.customerId
+}
+
+func (a *Account) Owner() OwnerSnapshot {
 	return a.owner
 }
 

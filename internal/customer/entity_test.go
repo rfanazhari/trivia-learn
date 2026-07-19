@@ -21,15 +21,11 @@ func TestNewCustomer_ShouldSuccess(t *testing.T) {
 		t.Errorf("NewCustomer() id = %v, want not empty", cust.GetID())
 	}
 
-	if cust.GetNik() != nik.String() {
+	if cust.GetNik() != nik {
 		t.Errorf("NewCustomer() nik = %v, want %v", cust.GetNik(), nik)
 	}
 
-	if cust.GetFirstName() != personName.GetFirstName() {
-		t.Errorf("NewCustomer() firstName = %v, want %v", cust.GetFirstName(), personName.GetFirstName())
-	}
-
-	if cust.GetLastName() != personName.GetLastName() {
-		t.Errorf("NewCustomer() lastName = %v, want %v", cust.GetLastName(), personName.GetLastName())
+	if cust.GetPersonName() != personName {
+		t.Errorf("NewCustomer() firstName = %v, want %v", cust.GetPersonName(), personName)
 	}
 }

@@ -24,6 +24,6 @@ func (c *Customer) Nik() Nik {
 	return c.nik
 }
 
-func (c *Customer) PersonalName() PersonName {
+func (c *Customer) Name() PersonName {
 	return c.personName
 }

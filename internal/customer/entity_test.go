@@ -11,10 +11,10 @@ func TestNewCustomer_ShouldSuccess(t *testing.T) {
 	cust, err := customer.NewCustomer(nik, personName)
 
 	if err != nil {
-		t.Errorf("NewCustomer() error = %v", err)
+		t.Fatalf("NewCustomer() error = %v", err)
 	}
 	if cust == nil {
-		t.Errorf("NewCustomer() customer = nil")
+		t.Fatalf("NewCustomer() customer = nil")
 	}
 
 	if cust.ID() == "" {
@@ -25,7 +25,7 @@ func TestNewCustomer_ShouldSuccess(t *testing.T) {
 		t.Errorf("NewCustomer() nik = %v, want %v", cust.Nik(), nik)
 	}
 
-	if cust.PersonalName() != personName {
-		t.Errorf("NewCustomer() firstName = %v, want %v", cust.PersonalName(), personName)
+	if cust.Name() != personName {
+		t.Errorf("NewCustomer() firstName = %v, want %v", cust.Name(), personName)
 	}
 }
